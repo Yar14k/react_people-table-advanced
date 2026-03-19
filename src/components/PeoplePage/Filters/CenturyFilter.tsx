@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
+import { getSearchWith } from '../../../utils/searchHelper';
 
 const centuries = [16, 17, 18, 19, 20];
 
@@ -11,26 +12,18 @@ const CenturyFilter = ({ selectedCenturies }: PeopleProps) => {
   const [searchParams] = useSearchParams();
 
   const getLink = (century: number) => {
-    const params = new URLSearchParams(searchParams);
+    let newCenturies: string[];
 
     if (selectedCenturies.includes(century)) {
-      const all = params.getAll('centuries');
-
-      params.delete('centuries');
-      all
-        .filter(c => Number(c) !== century)
-        .forEach(c => params.append('centuries', c));
+      newCenturies = selectedCenturies.filter(c => c !== century).map(String);
     } else {
-      params.append('centuries', century.toString());
+      newCenturies = [...selectedCenturies.map(String), century.toString()];
     }
 
-    return `/people?${params.toString()}`;
+    return `/people?${getSearchWith(searchParams, { centuries: newCenturies })}`;
   };
 
-  const allParams = new URLSearchParams(searchParams.toString());
-
-  allParams.delete('centuries');
-  const allLink = `/people${allParams.toString() ? `?${allParams.toString()}` : ''}`;
+  const allLink = `/people?${getSearchWith(searchParams, { centuries: null })}`;
 
   return (
     <div className="panel-block">

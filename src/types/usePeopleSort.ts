@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 
 export type SortField = 'name' | 'sex' | 'born' | 'died' | null;
-export type SortOrder = 'asc' | 'desc';
+export type SortOrder = 'asc' | 'desc' | undefined;
 
 export function usePeopleSort() {
   const [searchParams, setSearchParams] = useSearchParams();

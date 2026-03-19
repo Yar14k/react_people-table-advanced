@@ -2,6 +2,7 @@
 import PersonLink from './PersonLink';
 import { Person } from '../../types';
 import { SortField, SortOrder } from '../../types/usePeopleSort';
+import { Link } from 'react-router-dom';
 
 type PeopleTableProps = {
   people: Person[];
@@ -25,20 +26,70 @@ const PeopleTable = ({
     >
       <thead>
         <tr>
-          <th onClick={() => onSortChange('name')}>
-            Name{' '}
-            {sortField === 'name' ? (sortOrder === 'desc' ? '▼' : '▲') : ''}
+          {' '}
+          <th>
+            <span
+              className="is-flex is-flex-wrap-nowrap"
+              style={{ cursor: 'pointer' }}
+              onClick={() => onSortChange('name')}
+            >
+              Name
+              <Link to={`#/people?sort=name`}>
+                <span className="icon">
+                  <i
+                    className={`fas fa-sort${sortField === 'name' ? (sortOrder === 'desc' ? '-down' : '-up') : ''}`}
+                  />
+                </span>
+              </Link>
+            </span>
           </th>
-          <th onClick={() => onSortChange('sex')}>
-            Sex {sortField === 'sex' ? (sortOrder === 'desc' ? '▼' : '▲') : ''}
+          <th>
+            <span
+              className="is-flex is-flex-wrap-nowrap"
+              style={{ cursor: 'pointer' }}
+              onClick={() => onSortChange('sex')}
+            >
+              Sex
+              <Link to={`#/people?sort=sex`}>
+                <span className="icon">
+                  <i
+                    className={`fas fa-sort${sortField === 'sex' ? (sortOrder === 'desc' ? '-down' : '-up') : ''}`}
+                  />
+                </span>
+              </Link>
+            </span>
           </th>
-          <th onClick={() => onSortChange('born')}>
-            Born{' '}
-            {sortField === 'born' ? (sortOrder === 'desc' ? '▼' : '▲') : ''}
+          <th>
+            <span
+              className="is-flex is-flex-wrap-nowrap"
+              style={{ cursor: 'pointer' }}
+              onClick={() => onSortChange('born')}
+            >
+              Born
+              <Link to={`#/people?sort=born`}>
+                <span className="icon">
+                  <i
+                    className={`fas fa-sort${sortField === 'born' ? (sortOrder === 'desc' ? '-down' : '-up') : ''}`}
+                  />
+                </span>
+              </Link>
+            </span>
           </th>
-          <th onClick={() => onSortChange('died')}>
-            Died{' '}
-            {sortField === 'died' ? (sortOrder === 'desc' ? '▼' : '▲') : ''}
+          <th>
+            <span
+              className="is-flex is-flex-wrap-nowrap"
+              style={{ cursor: 'pointer' }}
+              onClick={() => onSortChange('died')}
+            >
+              Died
+              <Link to={`#/people?sort=died`}>
+                <span className="icon">
+                  <i
+                    className={`fas fa-sort${sortField === 'died' ? (sortOrder === 'desc' ? '-down' : '-up') : ''}`}
+                  />
+                </span>
+              </Link>
+            </span>
           </th>
           <th>Mother</th>
           <th>Father</th>

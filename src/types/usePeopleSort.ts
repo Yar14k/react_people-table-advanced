@@ -5,8 +5,8 @@ export type SortOrder = 'asc' | 'desc' | undefined;
 
 export function usePeopleSort() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const sort = searchParams.get('sort') as SortField; // назва поля або null
-  const order = searchParams.get('order') as SortOrder | undefined; // 'desc' або null
+  const sort = searchParams.get('sort') as SortField;
+  const order = searchParams.get('order') as SortOrder | undefined;
 
   function toggleSort(field: SortField) {
     const currentSort = searchParams.get('sort') ?? '';

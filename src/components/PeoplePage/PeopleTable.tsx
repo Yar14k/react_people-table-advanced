@@ -2,7 +2,6 @@
 import PersonLink from './PersonLink';
 import { Person } from '../../types';
 import { SortField, SortOrder } from '../../types/usePeopleSort';
-import { Link } from 'react-router-dom';
 
 type PeopleTableProps = {
   people: Person[];
@@ -29,66 +28,58 @@ const PeopleTable = ({
           {' '}
           <th>
             <span
-              className="is-flex is-flex-wrap-nowrap"
-              style={{ cursor: 'pointer' }}
               onClick={() => onSortChange('name')}
+              style={{ cursor: 'pointer' }}
+              className="is-flex is-flex-wrap-nowrap"
             >
               Name
-              <Link to={`#/people?sort=name`}>
-                <span className="icon">
-                  <i
-                    className={`fas fa-sort${sortField === 'name' ? (sortOrder === 'desc' ? '-down' : '-up') : ''}`}
-                  />
-                </span>
-              </Link>
+              <span className="icon">
+                <i
+                  className={`fas ${sortField === 'name' ? (sortOrder === 'desc' ? 'fa-sort-down' : 'fa-sort-up') : 'fa-sort'}`}
+                />
+              </span>
             </span>
           </th>
           <th>
             <span
-              className="is-flex is-flex-wrap-nowrap"
-              style={{ cursor: 'pointer' }}
               onClick={() => onSortChange('sex')}
+              style={{ cursor: 'pointer' }}
+              className="is-flex is-flex-wrap-nowrap"
             >
               Sex
-              <Link to={`#/people?sort=sex`}>
-                <span className="icon">
-                  <i
-                    className={`fas fa-sort${sortField === 'sex' ? (sortOrder === 'desc' ? '-down' : '-up') : ''}`}
-                  />
-                </span>
-              </Link>
+              <span className="icon">
+                <i
+                  className={`fas ${sortField === 'sex' ? (sortOrder === 'desc' ? 'fa-sort-down' : 'fa-sort-up') : 'fa-sort'}`}
+                />
+              </span>
             </span>
           </th>
           <th>
             <span
-              className="is-flex is-flex-wrap-nowrap"
-              style={{ cursor: 'pointer' }}
               onClick={() => onSortChange('born')}
+              style={{ cursor: 'pointer' }}
+              className="is-flex is-flex-wrap-nowrap"
             >
               Born
-              <Link to={`#/people?sort=born`}>
-                <span className="icon">
-                  <i
-                    className={`fas fa-sort${sortField === 'born' ? (sortOrder === 'desc' ? '-down' : '-up') : ''}`}
-                  />
-                </span>
-              </Link>
+              <span className="icon">
+                <i
+                  className={`fas ${sortField === 'born' ? (sortOrder === 'desc' ? 'fa-sort-down' : 'fa-sort-up') : 'fa-sort'}`}
+                />
+              </span>
             </span>
           </th>
           <th>
             <span
-              className="is-flex is-flex-wrap-nowrap"
-              style={{ cursor: 'pointer' }}
               onClick={() => onSortChange('died')}
+              style={{ cursor: 'pointer' }}
+              className="is-flex is-flex-wrap-nowrap"
             >
               Died
-              <Link to={`#/people?sort=died`}>
-                <span className="icon">
-                  <i
-                    className={`fas fa-sort${sortField === 'died' ? (sortOrder === 'desc' ? '-down' : '-up') : ''}`}
-                  />
-                </span>
-              </Link>
+              <span className="icon">
+                <i
+                  className={`fas ${sortField === 'died' ? (sortOrder === 'desc' ? 'fa-sort-down' : 'fa-sort-up') : 'fa-sort'}`}
+                />
+              </span>
             </span>
           </th>
           <th>Mother</th>

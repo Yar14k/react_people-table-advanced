@@ -27,7 +27,10 @@ const CenturyFilter = ({ selectedCenturies }: PeopleProps) => {
     return `/people?${params.toString()}`;
   };
 
-  const allLink = '/people';
+  const allParams = new URLSearchParams(searchParams.toString());
+
+  allParams.delete('centuries');
+  const allLink = `/people${allParams.toString() ? `?${allParams.toString()}` : ''}`;
 
   return (
     <div className="panel-block">

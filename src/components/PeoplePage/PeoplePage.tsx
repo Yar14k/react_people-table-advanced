@@ -42,8 +42,8 @@ export const PeoplePage = () => {
       if (query) {
         const matches =
           person.name.toLowerCase().includes(query) ||
-          person.motherName?.toLowerCase().includes(query) ||
-          person.fatherName?.toLowerCase().includes(query);
+          (person.motherName || '').toLowerCase().includes(query) ||
+          (person.fatherName || '').toLowerCase().includes(query);
 
         if (!matches) {
           return false;
